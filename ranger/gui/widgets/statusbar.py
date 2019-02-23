@@ -163,11 +163,11 @@ class StatusBar(Widget):  # pylint: disable=too-many-instance-attributes
         how = 'good' if getuid() == stat.st_uid else 'bad'
         left.add(perms, 'permissions', how)
         left.add_space()
-        left.add(str(stat.st_nlink), 'nlink')
-        left.add_space()
-        left.add(self._get_owner(target), 'owner')
-        left.add_space()
-        left.add(self._get_group(target), 'group')
+        #left.add(str(stat.st_nlink), 'nlink')
+        #left.add_space()
+        #left.add(self._get_owner(target), 'owner')
+        #left.add_space()
+        #left.add(self._get_group(target), 'group')
 
         if target.is_link:
             how = 'good' if target.exists else 'bad'
