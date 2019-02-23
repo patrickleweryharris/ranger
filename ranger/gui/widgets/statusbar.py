@@ -274,7 +274,7 @@ class StatusBar(Widget):  # pylint: disable=too-many-instance-attributes
                 right.add(human_readable(sumsize, separator=''))
             right.add("/" + str(len(target.marked_items)))
         else:
-            right.add(human_readable(target.disk_usage, separator='') + " sum")
+            right.add(human_readable(target.disk_usage, separator=''))
             if self.settings.display_free_space_in_status_bar:
                 try:
                     free = get_free_space(target.mount_path)
@@ -292,7 +292,8 @@ class StatusBar(Widget):  # pylint: disable=too-many-instance-attributes
         elif target.files:
             right.add(str(target.pointer + 1) + '/' + str(len(target.files)) + '  ', base)
             if max_pos <= 0:
-                right.add('All', base, 'all')
+                #right.add('All', base, 'all')
+                e = 1
             elif pos == 0:
                 right.add('Top', base, 'top')
             elif pos >= max_pos:
@@ -301,7 +302,7 @@ class StatusBar(Widget):  # pylint: disable=too-many-instance-attributes
                 right.add('{0:0.0%}'.format((pos / max_pos)),
                           base, 'percentage')
         else:
-            right.add('0/0  All', base, 'all')
+            right.add('0/0', base, 'all')
 
         if self.settings.freeze_files:
             # Indicate that files are frozen and will not be loaded
